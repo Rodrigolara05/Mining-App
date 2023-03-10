@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/pages/home.page.dart';
+import 'package:mobile/pages/routes.page.dart';
 import 'package:mobile/utils/material-color.util.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
-            backgroundColor: Color.fromRGBO(132, 232, 95, 1),
+            backgroundColor: Color.fromRGBO(242,159,5, 1),
             textStyle: TextStyle(color: Colors.white)
           )
         ),
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           headline3: TextStyle(fontWeight: FontWeight.w600,color: Colors.black),
           headline4: TextStyle(fontWeight: FontWeight.w500,color: Colors.black)
         ),
-        primarySwatch: createMaterialColor(Color.fromRGBO(226, 182, 70, 1)),
+        primarySwatch: createMaterialColor(Color.fromRGBO(242, 203, 5, 1)),
       ),
       home: MyHomePage(title: 'Mining App'),
     );
@@ -52,10 +53,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int selectedIndex = 0;
+  int selectedIndex = 1;
   final  mainPages = [
     HomePage(),
-    HomePage(),
+    RouteMainPage(),
     HomePage()
   ];
 
@@ -72,7 +73,19 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Mining App"),
+              CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage("assets/images/default_avatar.png"),
+              )
+
+            ],
+          ),
+        )
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
